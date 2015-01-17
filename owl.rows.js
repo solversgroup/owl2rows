@@ -5,11 +5,16 @@
 ;(function ( $, window, document, undefined ) {
     Rows = function(scope){
         this.owl = scope;
-        this.owl._options = $.extend(Rows.Defaults, this.owl.options);
+        this.owl.options = $.extend(Rows.Defaults, this.owl.options);
+
+        this.carousel = {};
+        this.sourceItems = {};
+        this.evenItems = [];
+        this.oddItems = [];
 
         this.handlers = {
             'initialize.owl.carousel' : $.proxy(function (e) {
-                if (this.owl._options.rows) {
+                if (this.owl.options.rows) {
                     this.startup();
                 }
             }, this)
@@ -19,12 +24,32 @@
     }
 
     Rows.Defaults = {
-        rows: true
+        rows: true,
+        rowsCount: 2,
+        rowsTargetClass: 'item'
     }
 
     //mehtods:
     Rows.prototype.startup = function(){
-        console.info(this);
+
+        var evenItemsArray = [],
+            oddItemsArray = [];
+
+        this.carousel = $('.' + this.owl.options.baseClass);
+        this.sourceItems = this.carousel.find('.' + this.owl.options.rowsTargetClass);
+
+        $.each(this.sourceItems, function(i, el) {
+            if ( i % 2 === 0 ) {
+                evenItemsArray.push(el);
+            } else {
+                oddItemsArray.push(el);
+            }
+        });
+
+        this.evenItems = evenItemsArray;
+        this.oddItems = evenItemsArray;
+
+        this.carousel.empty();
     }
 
     //destroy:
