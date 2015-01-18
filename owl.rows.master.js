@@ -50,14 +50,12 @@
                 column = $('<div/>');
                 counter = 0;
             }
-
-
         });
     }
 
-    //destroy:
     Rows.prototype.destroy = function(){
         //events here
     };
+    
     $.fn.owlCarousel.Constructor.Plugins['rows'] = Rows;
 })( window.Zepto || window.jQuery, window,  document );
