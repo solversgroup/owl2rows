@@ -22,7 +22,7 @@
     }
 
     Rows.Defaults = {
-        rows: true,
+        rows: false,
         rowsCount: 2,
         rowsTargetClass: 'item'
     }
