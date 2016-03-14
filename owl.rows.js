@@ -60,9 +60,7 @@
 
         var o2wContainerClass = thisScope.owl.options.owl2rowContainer;
         var owlMargin = thisScope.owl.options.margin;
-
         var carouselItemsLength = carouselItems.length;
-
         var firsArr = [];
         var secondArr = [];
 
@@ -74,10 +72,7 @@
             carouselItemsLength = carouselItemsLength/2;
         }
 
-        //console.log(carouselItemsLength);
-
         $.each(carouselItems, function (index, item) {
-
 
             if (index < carouselItemsLength) {
                 firsArr.push(item);
@@ -87,8 +82,8 @@
         });
 
         $.each(firsArr, function (index, item) {
+            
             var rowContainer = $('<div class="' + o2wContainerClass + '"/>');
-
             var firstRowElement = firsArr[index];
                 firstRowElement.style.marginBottom = owlMargin + 'px';
 
