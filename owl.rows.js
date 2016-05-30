@@ -5,7 +5,7 @@
 ;(function ($, window, document, undefined) {
     Owl2row = function (scope) {
         this.owl = scope;
-        this.owl.options = $.extend(Owl2row.Defaults, this.owl.options);
+        this.owl.options = $.extend({}, Owl2row.Defaults, this.owl.options);
         //link callback events with owl carousel here
 
         this.handlers = {
